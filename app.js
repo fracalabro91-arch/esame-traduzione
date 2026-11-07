@@ -11,6 +11,7 @@
   let timerId = null;
   let fuori = null;          // {inizio, motivo, dizionario}
   let ultimoDizionario = null; // {nome, t}
+  let fineConsultazione = 0;
   let ultimaLunghezza = 0;
   let salvaId = null;
 
@@ -202,6 +203,7 @@
       const durata = Date.now() - fuori.inizio;
       if (fuori.dizionario) { S.contatori.consultazioni++; S.contatori.msDizionari += durata; const lunga = durata > 120000; log(lunga ? "Consultazione lunga (oltre 2 minuti), da verificare" : "Consultazione autorizzata", fuori.dizionario + " per " + mmss(durata), lunga); }
       else { S.contatori.msFuori += durata; log("USCITA NON AUTORIZZATA", fuori.motivo + ", fuori per " + mmss(durata), true); avviso("Sei uscito dalla prova per " + mmss(durata) + ". L'uscita è stata registrata."); }
+      if (fuori.dizionario) fineConsultazione = Date.now();
       fuori = null; ultimoDizionario = null;
     };
     document.addEventListener("visibilitychange", () => (document.hidden ? esce("pagina nascosta (altra scheda/app o riduzione a icona)") : rientra()));
@@ -212,8 +214,8 @@
     const fsCambio = () => {
       if (S.consegna || SEB) return;
       if (!inFS()) {
-        const diz = ultimoDizionario && Date.now() - ultimoDizionario.t < 4000;
-        log("Uscita dallo schermo intero", diz ? "per consultare un dizionario" : "", !diz);
+        const diz = (ultimoDizionario && Date.now() - ultimoDizionario.t < 4000) || (fuori && fuori.dizionario) || Date.now() - fineConsultazione < 5000;
+        if (!diz) log("Uscita dallo schermo intero", "tasto Esc o gesto di uscita", true);
         mostraVelo(diz ? "Hai consultato un dizionario. Torna alla prova per continuare." : "Sei uscito dallo schermo intero. L'uscita è stata registrata.");
       } else $("velo").hidden = true;
     };
