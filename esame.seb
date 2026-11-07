@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>startURL</key><string>https://fracalabro91-arch.github.io/esame-traduzione/</string>
+  <key>quitURL</key><string>https://fracalabro91-arch.github.io/esame-traduzione/fine.html</string>
+  <key>quitURLConfirm</key><false/>
+  <key>allowQuit</key><true/>
+  <key>hashedQuitPassword</key><string>f4c71a404af9e392141f3eed8f970c3e940cddbee33dd2714abebd02911c3590</string>
+  <key>sendBrowserExamKey</key><false/>
+  <key>URLFilterEnable</key><true/>
+  <key>URLFilterEnableContentFilter</key><false/>
+  <key>URLFilterRules</key>
+  <array>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>deepl.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>chatgpt.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>openai.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>translate.google.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>reverso.net</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>gemini.google.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>copilot.microsoft.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>claude.ai</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>0</integer><key>active</key><true/><key>expression</key><string>perplexity.ai</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>fracalabro91-arch.github.io</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>wordreference.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>dle.rae.es</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>treccani.it</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>linguee.it</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>grandidizionari.hoepli.it</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>fonts.googleapis.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>fonts.gstatic.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>api.fontshare.com</string><key>regex</key><false/></dict>
+      <dict><key>action</key><integer>1</integer><key>active</key><true/><key>expression</key><string>docs.google.com</string><key>regex</key><false/></dict>
+  </array>
+  <key>newBrowserWindowByLinkPolicy</key><integer>2</integer>
+  <key>newBrowserWindowByScriptPolicy</key><integer>2</integer>
+  <key>allowSpellCheck</key><false/>
+  <key>allowDictionaryLookup</key><false/>
+  <key>enableRightMouse</key><false/>
+  <key>enablePrintScreen</key><false/>
+  <key>allowSwitchToApplications</key><false/>
+  <key>allowPreferencesWindow</key><false/>
+  <key>allowVirtualMachine</key><false/>
+  <key>allowedDisplaysMaxNumber</key><integer>1</integer>
+  <key>browserWindowAllowReload</key><true/>
+  <key>showReloadButton</key><false/>
+  <key>showTaskBar</key><true/>
+  <key>examSessionClearCookiesOnStart</key><true/>
+</dict>
+</plist>
