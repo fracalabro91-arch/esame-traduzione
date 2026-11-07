@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Prova di traduzione</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Schermata iniziale -->
+<main id="schermo-inizio" class="schermo">
+  <section class="scheda">
+    <p class="occhiello" id="corso"></p>
+    <h1 id="titolo">Prova di traduzione</h1>
+    <p class="docente" id="docente"></p>
+
+    <form id="form-inizio" autocomplete="off" novalidate>
+      <label>Nome e cognome
+        <input id="nome" required autocomplete="off" spellcheck="false">
+      </label>
+      <label>Matricola
+        <input id="matricola" required autocomplete="off" inputmode="numeric" spellcheck="false">
+      </label>
+      <label>Codice d'esame <span class="nota">(lo comunica la docente in aula)</span>
+        <input id="codice" required autocomplete="off" autocapitalize="characters" spellcheck="false">
+      </label>
+
+      <div class="regole">
+        <h2>Regole della prova</h2>
+        <ul>
+          <li>La prova si svolge a schermo intero. Ogni uscita (altra scheda, altra app, riduzione a icona) viene registrata con l'orario e inviata alla docente.</li>
+          <li>Incolla, copia, tasto destro e correttore automatico sono disattivati.</li>
+          <li>Puoi consultare solo i dizionari della barra in alto: le consultazioni vengono registrate con la durata.</li>
+          <li>Il lavoro si salva da solo. Allo scadere del tempo la traduzione viene consegnata automaticamente.</li>
+        </ul>
+        <label class="spunta"><input type="checkbox" id="accetto" required> Ho letto le regole e le accetto</label>
+      </div>
+
+      <p class="errore" id="errore-inizio" role="alert"></p>
+      <button type="submit" class="primario" id="btn-inizia">Inizia la prova</button>
+    </form>
+  </section>
+</main>
+
+<!-- Prova -->
+<div id="schermo-prova" class="schermo" hidden>
+  <header class="barra">
+    <div class="barra-sx">
+      <span class="sigla" id="sigla"></span>
+      <strong id="studente"></strong>
+      <span class="stato" id="stato-salvataggio">Salvato</span>
+    </div>
+    <nav class="dizionari" id="dizionari" aria-label="Dizionari consentiti"></nav>
+    <div class="barra-dx">
+      <span class="timer" id="timer" aria-live="off">--:--</span>
+      <button class="primario piccolo" id="btn-consegna">Consegna</button>
+    </div>
+  </header>
+
+  <div class="avviso" id="avviso" hidden role="alert"></div>
+
+  <main class="colonne">
+    <article class="originale" id="originale" aria-label="Testo originale">
+      <p class="consegna" id="consegna"></p>
+      <h2 id="titolo-testo"></h2>
+      <div id="testo"></div>
+      <p class="fonte" id="fonte"></p>
+    </article>
+    <section class="traduzione">
+      <label for="campo" class="etichetta">La tua traduzione</label>
+      <textarea id="campo" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" placeholder="Scrivi qui la traduzione…"></textarea>
+      <p class="contatore"><span id="parole">0</span> parole · <span id="uscite">0</span> uscite registrate</p>
+    </section>
+  </main>
+</div>
+
+<!-- Blocco quando si esce dallo schermo intero -->
+<div id="velo" class="velo" hidden>
+  <div class="velo-box">
+    <h2>Sei uscito dalla prova</h2>
+    <p id="velo-testo">L'uscita è stata registrata. Torna alla prova per continuare.</p>
+    <button class="primario" id="btn-rientra">Torna alla prova</button>
+  </div>
+</div>
+
+<!-- Conferma consegna -->
+<div id="conferma" class="velo" hidden>
+  <div class="velo-box">
+    <h2>Consegnare la traduzione?</h2>
+    <p>Dopo la consegna non potrai più modificarla.</p>
+    <div class="riga-bottoni">
+      <button class="secondario" id="btn-annulla">Continua a scrivere</button>
+      <button class="primario" id="btn-conferma">Consegna ora</button>
+    </div>
+  </div>
+</div>
+
+<!-- Fine -->
+<main id="schermo-fine" class="schermo" hidden>
+  <section class="scheda">
+    <h1 id="fine-titolo">Consegna in corso…</h1>
+    <p id="fine-testo">Non chiudere questa pagina.</p>
+    <p class="ricevuta" id="ricevuta" hidden></p>
+    <div class="riga-bottoni">
+      <button class="secondario" id="btn-scarica" hidden>Scarica una copia (.txt)</button>
+      <button class="primario" id="btn-riprova" hidden>Riprova l'invio</button>
+      <a class="secondario" id="btn-esci" href="fine.html" hidden>Chiudi la prova</a>
+    </div>
+  </section>
+</main>
+
+<script src="esame.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
